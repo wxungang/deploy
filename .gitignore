@@ -1,0 +1,10 @@
+.idea/
+node_modules/
+
+# cache file created by deepcode plugin 
+.dccache
+
+# vuepress
+.temp
+.cache
+dist

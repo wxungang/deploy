@@ -1,0 +1,37 @@
+name: Build and Deploy to gh-pages
+
+permissions:
+  contents: write
+
+on:
+  # 每当 push 到 main 分支时触发部署
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: node switch
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run docs:build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          clean: true # 默认清除，可以不配置
+          branch: gh-pages # 默认分支，可不配置
+          folder: src/.vuepress/dist # 需要提交的目录文件
+          clean-exclude: |
+            CNAME
