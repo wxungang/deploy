@@ -32,9 +32,9 @@ export default hopeTheme({
       pageInfo: ['Original', 'Date', 'Category', 'Tag', 'ReadingTime', 'Word'],
 
       // 文章右下角
-      contributors: true,
+      contributors: false,
       // 打包后所有文章都被更新为当前时间
-      lastUpdated: false,
+      lastUpdated: true,
       editLink: true,
       // footer
       footer: 'justdoless@foxmail.com',
