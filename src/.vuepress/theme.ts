@@ -36,6 +36,8 @@ export default hopeTheme({
       // 打包后所有文章都被更新为当前时间
       lastUpdated: true,
       editLink: true,
+      // 文档在仓库中的目录，配合editLink使用
+      docsDir: 'src',
       // footer
       footer: 'justdoless@foxmail.com',
       displayFooter: true
